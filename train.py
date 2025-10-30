@@ -46,19 +46,6 @@ def main() -> None:
     with open("best_catboost_params.json", "r") as f:
         best_params = json.load(f)
     model = CatBoostRegressor(**best_params)
-    model = CatBoostRegressor(
-        iterations=1649,
-        learning_rate=0.061544271574852594,
-        depth=6,
-        l2_leaf_reg=0.017233365408298063,
-        random_strength=0.082487309197701,
-        bagging_temperature=0.46493700396157595,
-        border_count=128,
-        loss_function="MAE",
-        eval_metric="MAE",
-        random_seed=42,
-        verbose=200,
-    )
 
 
     # 6️ Huấn luyện

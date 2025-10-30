@@ -16,13 +16,13 @@ def safe_mape(y_true: np.ndarray, y_pred: np.ndarray) -> float:
 
 
 def main() -> None:
-    # 1️⃣ Đọc dữ liệu
+    # 1️ Đọc dữ liệu
     # data_path = "DataCleaning.xlsx"
     # df = pd.read_excel(data_path)
     # df = df.replace([np.inf, -np.inf], np.nan)
     df = cleanDataTK()
 
-    # 2️⃣ Chuẩn bị dữ liệu
+    # 2️ Chuẩn bị dữ liệu
     df = df.drop_duplicates().reset_index(drop=True)
     X = df.drop(columns=["GIÁ CHỐT"])
     y = pd.to_numeric(df["GIÁ CHỐT"], errors="coerce")
@@ -31,11 +31,11 @@ def main() -> None:
     X = X.loc[valid_mask].reset_index(drop=True)
     y = y.loc[valid_mask].reset_index(drop=True)
 
-    # 3️⃣ CatBoost tự xử lý NaN — chỉ cần giữ categorical dạng string
+    # 3️ CatBoost tự xử lý NaN — chỉ cần giữ categorical dạng string
     cat_features = X.select_dtypes(include=["object", "category"]).columns.tolist()
     X[cat_features] = X[cat_features].astype(str)
 
-    # 4️⃣ Chia train/test
+    # 4️ Chia train/test
     X_train, X_test, y_train, y_test = train_test_split(
         X, y, test_size=0.15, random_state=42
     )

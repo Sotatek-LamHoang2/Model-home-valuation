@@ -78,7 +78,7 @@ def main() -> None:
     study = optuna.create_study(direction="minimize")
     study.optimize(
         lambda trial: objective(trial, X_train, y_train, X_test, y_test, cat_features),
-        n_trials=30
+        n_trials=100
     )
 
     print("✅ Tìm kiếm hoàn tất!")

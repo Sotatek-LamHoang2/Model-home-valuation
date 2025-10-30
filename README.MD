@@ -1,0 +1,3 @@
+- File cleanData.py cung cấp hàm để clean data tối ưu riêng cho DataTKbatch1.xlsx
+- File CatBoost.py là file tìm siêu tham số tối ưu cho mô hình (dùng optuna)
+- File train.py là file train model với bộ tham số đã tìm tìm được từ trước bằng việc chạy CatBoost.py (thời gian ngắn hơn nhiều so với tìm siêu tham số)
